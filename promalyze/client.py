@@ -97,4 +97,9 @@ class Client(object):
                 ts = TimeSeries(d['metric'], d['values'])
                 results.timeseries.append(ts)
 
+        if data['resultType'] == 'streams':
+            for d in data['result']:
+                ts = TimeSeries(d['stream'], d['values'])
+                results.timeseries.append(ts)
+
         return results
